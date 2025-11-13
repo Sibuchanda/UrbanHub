@@ -25,7 +25,7 @@ export const CheckAuth = ({ isAuthenticated, user, children }) => {
 
   // If user is authenticated and user role is not 'admin' and try to access admin page. Then we Redirect to unAuthorized page
   if(isAuthenticated && user?.role!=='admin' && location.pathname.includes("admin")){
-     return <Navigate to="/unAuthPage"/>
+     return <Navigate to="/unauth-page"/>
   }
 
   // If user is authenticated and user role is 'admin' and try to access normal shopping page. Then we Redirect to /admin/dashboard  page

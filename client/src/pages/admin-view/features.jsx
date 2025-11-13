@@ -2,6 +2,6 @@ import React from 'react'
 
 export const AdminFeatures = () => {
   return (
-    <div>AdminDashboard</div>
+    <div>AdminFeature</div>
   )
 }

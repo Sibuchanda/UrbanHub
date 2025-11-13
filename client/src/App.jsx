@@ -15,6 +15,7 @@ import { ShoppingCheckout } from './pages/shopping-view/checkout';
 import { ShoppingListing } from './pages/shopping-view/listing';
 import { ShoppingHome } from './pages/shopping-view/home';
 import { CheckAuth } from './components/common/check-auth';
+import { unAuthPage } from './pages/unAuthPage';
 
 const App = () => {
 
@@ -57,6 +58,7 @@ const App = () => {
           </Route>
           {/* Not Found route  */}
           <Route path="*" element={<NotFound/>}></Route>
+          <Route path="/unauth-page" element={unAuthPage}></Route>
       </Routes>
     </div>
   )
