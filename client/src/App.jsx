@@ -16,6 +16,7 @@ import { ShoppingListing } from './pages/shopping-view/listing';
 import { ShoppingHome } from './pages/shopping-view/home';
 import { CheckAuth } from './components/common/check-auth';
 import { unAuthPage } from './pages/unAuthPage';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
   const user = null;
   return (
     <div className="flex flex-col overflow-hidden bg-white">
+      <Toaster position="top-center"/>
       <Routes>
          {/* Auth routes  */}
          <Route path="/auth" element={
