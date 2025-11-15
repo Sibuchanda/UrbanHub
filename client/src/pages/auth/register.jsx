@@ -27,7 +27,7 @@ const navigate = useNavigate();
         toast.success(data?.payload?.message);
         navigate("/auth/login");
       } else {
-        console.log(data?.payload?.message);
+        toast.error(data?.payload?.message);
       }
     });
  }

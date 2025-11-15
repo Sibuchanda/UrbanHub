@@ -32,7 +32,7 @@ export const registerUser = async (req, res) => {
     console.log(e);
     res.status(500).json({
       success: false,
-      message: "Some error occured",
+      message: "Some error occured while signup",
     });
   }
 };
@@ -63,7 +63,7 @@ export const loginUser = async (req, res) => {
         email: checkUser.email,
         userName: checkUser.userName,
       },
-      "CLIENT_SECRET_KEY",
+      process.env.JWT_SECRET,
       { expiresIn: "60m" }
     );
 
@@ -81,7 +81,7 @@ export const loginUser = async (req, res) => {
     console.log(e);
     res.status(500).json({
       success: false,
-      message: "Some error occured",
+      message: "Some error occured while login",
     });
   }
 };

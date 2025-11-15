@@ -17,12 +17,12 @@ import { ShoppingHome } from './pages/shopping-view/home';
 import { CheckAuth } from './components/common/check-auth';
 import { unAuthPage } from './pages/unAuthPage';
 import { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 
 const App = () => {
+const {isAuthenticated, user} = useSelector(state=>state.auth)
 
-  // Dummy data 
-  const isAuthenticated = false;
-  const user = null;
+
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Toaster position="top-center"/>
