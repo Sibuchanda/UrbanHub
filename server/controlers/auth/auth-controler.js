@@ -49,9 +49,9 @@ export const loginUser = async (req, res) => {
         message: "User doesn't exists! Please register first",
       });
 
-   const hashedInputPassword = crypto.createHash("sha256").update(User.saltValue + password).digest("hex");
+   const hashedInputPassword = crypto.createHash("sha256").update(checkUser.saltValue + password).digest("hex");
    
-   if (hashedInputPassword !== User.password) {
+   if (hashedInputPassword !== checkUser.password) {
     res.status(400).json({ message: "Invalid credentials" });
     return;
   }
@@ -77,6 +77,7 @@ export const loginUser = async (req, res) => {
         userName: checkUser.userName,
       },
     });
+    console.log("Backend Login end...")
   } catch (e) {
     console.log(e);
     res.status(500).json({

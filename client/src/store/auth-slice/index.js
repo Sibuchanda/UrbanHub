@@ -19,12 +19,16 @@ export const registerUser = createAsyncThunk("/auth/register",
 );
 
 export const loginUser = createAsyncThunk("/auth/login",
-  async (formData) => {
+  async (formData, {rejectWithValue }) => {
+    try{
     const response = await axios.post(`${backendURL}/api/auth/login`,formData,{
         withCredentials: true,
       }
     );
-    return response.data;
+    return response.data
+    }catch(err){
+       return rejectWithValue(err.response.data);
+    }
   }
 );
 

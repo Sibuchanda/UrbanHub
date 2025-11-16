@@ -14,13 +14,16 @@ const initialState = {
 
 export const AuthLogin = () => {
 
- const [formData, setFormData] = useState(initialState);
+  // 'formData' will store all user form details (like--> email, password)
+ const [formData, setFormData] = useState(initialState); // initial state is the above initialState
  const dispatch = useDispatch();
 
  const onSubmit =(event)=> {
    event.preventDefault();
+   console.log(formData);
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
+        console.log(data?.payload);
         toast.success(data?.payload?.message);
       } else {
        toast.error(data?.payload?.message);

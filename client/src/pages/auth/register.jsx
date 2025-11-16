@@ -17,8 +17,7 @@ const initialState = {
 export const AuthRegister = () => {
 const dispatch = useDispatch();
 const navigate = useNavigate();
- const [formData, setFormData] = useState(initialState);
-
+const [formData, setFormData] = useState(initialState);
 
  const onSubmit =(event)=> {
    event.preventDefault();
@@ -31,8 +30,6 @@ const navigate = useNavigate();
       }
     });
  }
-
- console.log(formData);
 
   return (
     <div className="mx-auto w-full max-w-md space-y-6">
