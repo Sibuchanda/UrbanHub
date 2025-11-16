@@ -19,7 +19,7 @@ const dispatch = useDispatch();
 const navigate = useNavigate();
 const [formData, setFormData] = useState(initialState);
 
- const onSubmit =(event)=> {
+ const onSubmit=(event)=> {
    event.preventDefault();
     dispatch(registerUser(formData)).then((data) => {
       if (data?.payload?.success) {

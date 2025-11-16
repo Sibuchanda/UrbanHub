@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AuthLayout from './components/auth/layout';
 import { AuthLogin } from './pages/auth/login';
 import { AuthRegister } from './pages/auth/register';
@@ -17,11 +17,17 @@ import { ShoppingHome } from './pages/shopping-view/home';
 import { CheckAuth } from './components/common/check-auth';
 import { unAuthPage } from './pages/unAuthPage';
 import { Toaster } from 'react-hot-toast';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkAuth } from './store/auth-slice';
 
 const App = () => {
 const {isAuthenticated, user} = useSelector(state=>state.auth)
+const dispatch = useDispatch();
 
+// Calling 'auth-check' action on each page reload
+useEffect(()=>{
+  dispatch(checkAuth());
+},[dispatch]) 
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">

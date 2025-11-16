@@ -89,7 +89,6 @@ export const CommonForm = ({ formControls, formData, setFormData, onSubmit,butto
         );
         break;
     }
-
     return element;
   }
 
