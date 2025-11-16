@@ -19,15 +19,19 @@ import { unAuthPage } from './pages/unAuthPage';
 import { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkAuth } from './store/auth-slice';
+import { Skeleton } from "@/components/ui/skeleton"
 
 const App = () => {
-const {isAuthenticated, user} = useSelector(state=>state.auth)
+const {isAuthenticated, user, isLoading} = useSelector(state=>state.auth)
 const dispatch = useDispatch();
 
 // Calling 'auth-check' action on each page reload
 useEffect(()=>{
   dispatch(checkAuth());
 },[dispatch]) 
+
+// ---Skeleton Loading ---
+if(isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
