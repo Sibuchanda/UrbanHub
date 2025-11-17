@@ -2,6 +2,8 @@ import { Label } from "@radix-ui/react-label";
 import React from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { Textarea } from "../ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 export const CommonForm = ({ formControls, formData, setFormData, onSubmit,buttonText, isBtnDisabled}) => {
 
