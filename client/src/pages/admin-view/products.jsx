@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { addProductFormElements } from '@/config';
 import React, { Fragment, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 
 
 const initialFormData = {

@@ -10,9 +10,9 @@ const backendURL = import.meta.env.VITE_BACKEND_URL;
 function ProductImageUpload({
   imageFile,
   setImageFile,
-  imageLoadingState,
   uploadedImageUrl,
   setUploadedImageUrl,
+  imageLoadingState,
   setImageLoadingState,
   isEditMode,
   isCustomStyling = false,
@@ -20,9 +20,7 @@ function ProductImageUpload({
   const inputRef = useRef(null);
 
   function handleImageFileChange(event) {
-    console.log(event.target.files, "event.target.files");
     const selectedFile = event.target.files?.[0];
-    console.log(selectedFile);
     if (selectedFile) setImageFile(selectedFile);
   }
 
@@ -47,8 +45,7 @@ function ProductImageUpload({
     setImageLoadingState(true);
     const data = new FormData();
     data.append("my_file", imageFile);
-    const response = await axios.post(
-      `${backendURL}/api/admin/products/upload-image`,
+    const response = await axios.post(`${backendURL}/api/admin/products/upload-image`,
       data
     );
     if (response?.data?.success) {
@@ -62,7 +59,7 @@ function ProductImageUpload({
   }, [imageFile]);
 
   return (
-    <div className={`w-full  mt-4 ${isCustomStyling ? "" : "max-w-md mx-auto"}`}>
+    <div className={`w-full mt-4 ${isCustomStyling ? "" : "max-w-md mx-auto p-2"}`}>
       <Label className="text-lg font-semibold mb-2 block">Upload Image</Label>
       <div onDragOver={handleDragOver} onDrop={handleDrop} className={`${isEditMode ? "opacity-60" : ""} border-2 border-dashed rounded-lg p-4`}>
         <Input

@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import authRouter from './routes/auth/auth-routes.js'
+import adminProductsRouter from './routes/admin/products-routes.js'
 
 
 //Database
@@ -33,6 +34,7 @@ app.use(cookieParser());
 app.use(express.json());
 // --- Router ---
 app.use('/api/auth', authRouter);
+app.use('/api/admin/products', adminProductsRouter);
 
 
 app.listen(PORT, ()=>{
