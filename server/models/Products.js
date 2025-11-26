@@ -12,7 +12,7 @@ const ProductSchema = new mongoose.Schema(
     totalStock: Number,
     averageReview: Number,
   },
-  { timestamps: true }
+ { timestamps: true }
 );
 
 const Product = mongoose.model("Product",ProductSchema);
