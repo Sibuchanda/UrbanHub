@@ -77,7 +77,6 @@ export const loginUser = async (req, res) => {
         userName: checkUser.userName,
       },
     });
-    console.log("Backend Login end...")
   } catch (e) {
     console.log(e);
     res.status(500).json({

@@ -14,8 +14,7 @@ const initialState = {
 
 export const AuthLogin = () => {
 
-  // 'formData' will store all user form details (like--> email, password)
- const [formData, setFormData] = useState(initialState); // initial state is the above initialState
+ const [formData, setFormData] = useState(initialState); 
  const dispatch = useDispatch();
 
  const onSubmit =(event)=> {
@@ -30,7 +29,6 @@ export const AuthLogin = () => {
       }
     });
  }
-
 
   return (
     <div className="mx-auto w-full max-w-md space-y-6">

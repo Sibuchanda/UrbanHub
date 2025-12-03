@@ -25,7 +25,6 @@ const App = () => {
 const {isAuthenticated, user, isLoading} = useSelector(state=>state.auth)
 const dispatch = useDispatch();
 
-// Calling 'auth-check' action on each page reload
 useEffect(()=>{
   dispatch(checkAuth());
 },[dispatch]) 

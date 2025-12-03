@@ -16,6 +16,7 @@ function ProductImageUpload({
   setImageLoadingState,
   isEditMode,
   isCustomStyling = false,
+  currentEditedId
 }) {
   const inputRef = useRef(null);
 
@@ -61,7 +62,7 @@ function ProductImageUpload({
   return (
     <div className={`w-full mt-4 ${isCustomStyling ? "" : "max-w-md mx-auto p-2"}`}>
       <Label className="text-lg font-semibold mb-2 block">Upload Image</Label>
-      <div onDragOver={handleDragOver} onDrop={handleDrop} className={`${isEditMode ? "opacity-60" : ""} border-2 border-dashed rounded-lg p-4`}>
+      <div onDragOver={handleDragOver} onDrop={handleDrop} className={`${isEditMode ? "opacity-50 cursor-not-allowed" : ""} border-2 border-dashed rounded-lg p-4`}>
         <Input
           id="image-upload"
           type="file"
@@ -73,7 +74,7 @@ function ProductImageUpload({
         {!imageFile ? (
           <Label htmlFor="image-upload" className={`${isEditMode ? "cursor-not-allowed" : ""} flex flex-col items-center justify-center h-32 cursor-pointer`}>
         <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
-        <span>Drag & drop or click to upload image</span>
+        <span className={`${isEditMode ? "opacity-50 cursor-not-allowed" : ""}`}>Drag & drop or click to upload image</span>
         </Label>
         ) : imageLoadingState ? (
           <Skeleton className="h-10 bg-gray-100" />

@@ -35,6 +35,7 @@ function AdminProductTile({
         </CardContent>
         <CardFooter className="flex justify-between items-center">
           <Button
+          className="cursor-pointer"
             onClick={() => {
               setOpenCreateProductsDialog(true);
               setCurrentEditedId(product?._id);
@@ -43,7 +44,7 @@ function AdminProductTile({
           >
             Edit
           </Button>
-          <Button onClick={() => handleDelete(product?._id)}>Delete</Button>
+          <Button onClick={() => handleDelete(product?._id)} className="cursor-pointer">Delete</Button>
         </CardFooter>
       </div>
     </Card>

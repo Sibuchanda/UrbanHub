@@ -32,21 +32,15 @@ export const loginUser = createAsyncThunk("/auth/login",
   }
 );
 
-// export const logoutUser = createAsyncThunk(
-//   "/auth/logout",
-
-//   async () => {
-//     const response = await axios.post(
-//       "http://localhost:5000/api/auth/logout",
-//       {},
-//       {
-//         withCredentials: true,
-//       }
-//     );
-
-//     return response.data;
-//   }
-// );
+export const logoutUser = createAsyncThunk("/auth/logout", async () => {
+    const response = await axios.post(`${backendURL}/api/auth/logout`,{},
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  }
+);
 
 export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
     const response = await axios.get(`${backendURL}/api/auth/check-auth`,
@@ -98,7 +92,11 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
-      })
+      }).addCase(logoutUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      });
   },
 });
 
