@@ -1,5 +1,5 @@
 import express from 'express'
-import handleImageUpload, { addProduct, deleteProduct, editProduct, fetchAllProducts } from '../../controlers/admin/products-controller.js';
+import { addProduct, deleteProduct, editProduct, fetchAllProducts, handleImageUpload } from '../../controlers/admin/products-controller.js';
 import { upload } from '../../helpers/cloudinary.js';
 
 const router = express.Router();
