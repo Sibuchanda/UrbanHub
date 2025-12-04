@@ -58,9 +58,9 @@ if(isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
          </Route>
          {/* Shopping routes  */}
           <Route path="/shop" element={
-           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+          //  <CheckAuth isAuthenticated={isAuthenticated} user={user}>
             <ShoppingLayout/>
-           </CheckAuth>
+           // </CheckAuth>  
           }>
           <Route path="account" element={<ShoppingAccount/>}/>
           <Route path="checkout" element={<ShoppingCheckout/>}/>

@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import authRouter from './routes/auth/auth-routes.js'
 import adminProductsRouter from './routes/admin/products-routes.js'
+import shopProductRouter from './routes/shop/productsRoutes.js';
 
 
 //Database
@@ -35,6 +36,7 @@ app.use(express.json());
 // --- Router ---
 app.use('/api/auth', authRouter);
 app.use('/api/admin/products', adminProductsRouter);
+app.use('/api/shop/products', shopProductRouter);
 
 
 app.listen(PORT, ()=>{
